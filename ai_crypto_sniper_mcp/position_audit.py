@@ -46,7 +46,7 @@ def _pubkey_from_wallet(wallet_path: str) -> str:
 
 
 def _trading_pubkey(project_dir: str) -> str:
-    """Return the Meme-Coin bot wallet owner (legacy helper name retained)."""
+    """Return the Meme bot wallet owner (legacy helper name retained)."""
     return _pubkey_from_wallet(os.path.join(project_dir, "meme_wallet.json"))
 
 
@@ -62,7 +62,7 @@ def get_exit_quote(mint: str, raw_amount: int, slippage_bps: int) -> dict[str, A
     })
     request = urllib.request.Request(
         f"{JUPITER_QUOTE_ENDPOINT}?{query}",
-        headers={"User-Agent": "solana-snipe-bot-mcp/1.1"},
+        headers={"User-Agent": "ai-crypto-sniper-mcp/5.0"},
     )
     with urllib.request.urlopen(request, timeout=15) as response:
         quote = json.loads(response.read().decode("utf-8"))
@@ -88,7 +88,7 @@ def get_token_price_usd(mint: str) -> float:
     query = urllib.parse.urlencode({"ids": mint})
     request = urllib.request.Request(
         f"{JUPITER_PRICE_ENDPOINT}?{query}",
-        headers={"User-Agent": "solana-snipe-bot-mcp/1.1", "Accept": "application/json"},
+        headers={"User-Agent": "ai-crypto-sniper-mcp/5.0", "Accept": "application/json"},
     )
     with urllib.request.urlopen(request, timeout=15) as response:
         result = json.loads(response.read().decode("utf-8"))

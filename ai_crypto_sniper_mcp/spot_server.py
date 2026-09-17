@@ -1,6 +1,6 @@
 """Spot Trading MCP Server — V4.
 
-Exposes 50+ MCP tools for controlling and querying the Solana Sniper Bot
+Exposes 50+ MCP tools for controlling and querying AI Crypto Sniper
 spot trading module (Jupiter DEX). Tools are grouped by:
 
 1. Bot control (4)
@@ -52,12 +52,13 @@ from spot_config_schema import (
     validate_spot_config,
 )
 
-PROJECT_DIR = os.environ.get("SOLANA_SNIPER_BOT_DIR",
-                              os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_DIR = (os.environ.get("AI_CRYPTO_SNIPER_DIR")
+               or os.environ.get("SOLANA_SNIPER_BOT_DIR")
+               or os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SPOT_CONFIG_PATH = os.path.join(PROJECT_DIR, "spot_config.json")
 SPOT_COMMAND_FILE = os.path.join(PROJECT_DIR, "spot_command_queue.json")
 
-mcp = FastMCP("solana-snipe-bot-spot")
+mcp = FastMCP("ai-crypto-sniper-spot")
 
 
 # ---------------------------------------------------------------------------

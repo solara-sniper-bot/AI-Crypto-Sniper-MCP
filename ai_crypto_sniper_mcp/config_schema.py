@@ -139,7 +139,11 @@ CONFIG_RULES: dict[str, dict[str, Any]] = {
     "max_sell_retries": _rule("integer", 10, "Failed sell attempts before marking a position for manual review.", minimum=1, maximum=100),
     "auto_execute": _rule("boolean", True, "Allow the bot to execute approved strategy actions automatically."),
     "dry_run": _rule("boolean", True, "Simulate transactions without broadcasting them."),
-    "alert_sound": _rule("string", r"C:\Windows\Media\Ring10.wav", "Sound played before a live buy."),
+    "alert_sound": _rule("string", "sounds/buy.mp3", "Sound file played on buy/entry (WAV/MP3/AAC)."),
+    "sell_alert_sound": _rule("string", "sounds/sell.mp3", "Sound file played on sell/close (WAV/MP3/AAC)."),
+    "win_alert_sound": _rule("string", "sounds/win.mp3", "Sound file played 5s after a profitable close (WAV/MP3/AAC)."),
+    "loss_alert_sound": _rule("string", "sounds/loss.mp3", "Sound file played 5s after a losing close (WAV/MP3/AAC)."),
+    "use_sounds": _rule("boolean", True, "Master toggle for all Meme bot alert sounds."),
     "buy_pct_of_wallet": _rule("number", 10, "Percentage of available wallet SOL allocated to each entry.", minimum=1, maximum=100),
     "min_wallet_reserve_sol": _rule("number", 0.01, "SOL that must remain available for fees and recovery transactions.", minimum=0, maximum=100),
     "min_trade_size_sol": _rule("number", 0.005, "Reject entries smaller than this amount of SOL.", minimum=0, maximum=100),
@@ -195,7 +199,9 @@ CONFIG_RULES: dict[str, dict[str, Any]] = {
 
 RESEARCHED_DEFAULT_PROFILE: dict[str, Any] = {
     key: rule["default"] for key, rule in CONFIG_RULES.items()
-    if key not in {"rpc_http_url", "rpc_ws_url", "alert_sound", "blacklist_mints",
+    if key not in {"rpc_http_url", "rpc_ws_url", "alert_sound", "sell_alert_sound",
+                   "win_alert_sound", "loss_alert_sound",
+                   "blacklist_mints",
                    "pumpportal_ws_url", "bitquery_ws_url", "bitquery_api_key"}
 }
 

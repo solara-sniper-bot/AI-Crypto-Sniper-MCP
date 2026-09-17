@@ -1,9 +1,9 @@
 {
-  "description": "Autonomous Solana trading bot with 281 MCP tools across Meme sniping (Pump.fun), Spot trading (Jupiter), Perpetual futures (long/short with leverage), and Mirror copy-trading modes. Requires the Solana Sniper Bot V4 Windows application.",
-  "identifier": "solara-sniper-bot-solana-snipe-bot-mcp",
-  "name": "Solana Sniper Bot MCP",
-  "version": "4.0.4",
-  "homepage": "https://solsniperbot.co/mcp/",
+  "description": "Autonomous Solana trading bot with 331 MCP tools across Meme sniping (Pump.fun), Spot trading (Jupiter), Perpetual futures (long/short with leverage), and Mirror copy-trading modes. Requires the AI Crypto Sniper V5 Windows application.",
+  "identifier": "solara-sniper-bot-ai-crypto-sniper-mcp",
+  "name": "AI Crypto Sniper MCP",
+  "version": "5.0.0",
+  "homepage": "https://aicryptosniper.com/mcp/",
   "author": "solara-sniper-bot",
   "authorUrl": "https://github.com/solara-sniper-bot",
   "category": "developer",
@@ -1148,5 +1148,5 @@
       "description": "Set the take profit percentage for mirror positions."
     }
   ],
-  "icon": "https://solsniperbot.co/mcp/sniper-icon.png"
+  "icon": "https://aicryptosniper.com/mcp/sniper-icon.png"
 }

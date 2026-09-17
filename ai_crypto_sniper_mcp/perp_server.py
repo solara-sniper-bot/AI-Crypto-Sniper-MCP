@@ -1,6 +1,6 @@
 """Perpetuals MCP Server — V4.
 
-Exposes 50 MCP tools for controlling and querying the Solana Sniper Bot
+Exposes 50 MCP tools for controlling and querying AI Crypto Sniper
 perpetuals module (Raydium Perps / Orderly Network). Tools are grouped by:
 
 1. Bot control
@@ -41,13 +41,20 @@ from perp_config_schema import (
     risk_level_name,
     validate_perp_config,
 )
+from perp_credentials import (
+    ORDERLY_SECRET_KEYS,
+    load_orderly_credentials,
+    public_perp_config,
+    save_orderly_credentials,
+)
 
-PROJECT_DIR = os.environ.get("SOLANA_SNIPER_BOT_DIR",
-                              os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_DIR = (os.environ.get("AI_CRYPTO_SNIPER_DIR")
+               or os.environ.get("SOLANA_SNIPER_BOT_DIR")
+               or os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 PERP_CONFIG_PATH = os.path.join(PROJECT_DIR, "perp_config.json")
 PERP_COMMAND_FILE = os.path.join(PROJECT_DIR, "perp_command_queue.json")
 
-mcp = FastMCP("solana-snipe-bot-perp")
+mcp = FastMCP("ai-crypto-sniper-perp")
 
 
 # ---------------------------------------------------------------------------
@@ -80,7 +87,7 @@ def _load_perp_cfg() -> dict:
 
 
 def _save_perp_cfg(cfg: dict) -> None:
-    _write_json(PERP_CONFIG_PATH, cfg)
+    _write_json(PERP_CONFIG_PATH, public_perp_config(cfg))
 
 
 def _enqueue_command(cmd: str, **params: Any) -> None:
@@ -92,16 +99,33 @@ def _enqueue_command(cmd: str, **params: Any) -> None:
 
 def _set_cfg_value(key: str, value: Any) -> dict:
     cfg = _load_perp_cfg()
-    cfg[key] = parse_perp_config_value(key, value)
+    parsed = parse_perp_config_value(key, value)
+    if key in ORDERLY_SECRET_KEYS:
+        credentials = load_orderly_credentials()
+        credentials[key] = parsed
+        save_orderly_credentials(credentials)
+        cfg[key] = "<stored securely>" if parsed else ""
+    else:
+        cfg[key] = parsed
     _save_perp_cfg(cfg)
     return cfg
 
 
 def _update_batch(updates: dict) -> dict:
     cfg = _load_perp_cfg()
+    credentials = load_orderly_credentials()
+    secrets_changed = False
     for k, v in updates.items():
         if k in PERP_CONFIG_RULES:
-            cfg[k] = parse_perp_config_value(k, v)
+            parsed = parse_perp_config_value(k, v)
+            if k in ORDERLY_SECRET_KEYS:
+                credentials[k] = parsed
+                cfg[k] = "<stored securely>" if parsed else ""
+                secrets_changed = True
+            else:
+                cfg[k] = parsed
+    if secrets_changed:
+        save_orderly_credentials(credentials)
     _save_perp_cfg(cfg)
     return cfg
 
