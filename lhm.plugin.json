@@ -1,6 +1,6 @@
 {
   "description": "Autonomous Solana trading bot with 331 MCP tools across Meme sniping (Pump.fun), Spot trading (Jupiter), Perpetual futures (long/short with leverage), and Mirror copy-trading modes. Requires the AI Crypto Sniper V5 Windows application.",
-  "identifier": "solara-sniper-bot-ai-crypto-sniper-mcp",
+  "identifier": "solara-sniper-bot-solana-snipe-bot-mcp",
   "name": "AI Crypto Sniper MCP",
   "version": "5.0.0",
   "homepage": "https://aicryptosniper.com/mcp/",

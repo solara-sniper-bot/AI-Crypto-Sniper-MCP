@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.aicryptosniper/ai-crypto-sniper-mcp",
   "title": "AI Crypto Sniper MCP",
-  "description": "AI-assisted crypto trading bot with 331 MCP tools across Meme, Spot, Perpetuals, and Mirror modes. Works with Claude, Cursor, Devin, and other MCP clients.",
+  "description": "AI-assisted Solana trading bot with 331 MCP tools across Meme, Spot, Perpetuals, and Mirror modes.",
   "repository": {
     "url": "https://github.com/solara-sniper-bot/AI-Crypto-Sniper-MCP",
     "source": "github"
