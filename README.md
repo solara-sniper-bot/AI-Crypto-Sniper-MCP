@@ -1,4 +1,4 @@
-<!-- mcp-name: co.solsniperbot/solana-snipe-bot-mcp -->
+<!-- mcp-name: com.aicryptosniper/ai-crypto-sniper-mcp -->
 # Solana Sniper Bot MCP
 
 ![Solana Sniper Bot MCP](assets/mcp-software-box.png)
@@ -11,7 +11,7 @@ Four trading modes. One Windows desktop app. Full MCP integration for Claude, Cu
 
 This MCP server is **useless on its own**. It requires the **Solana Sniper Bot V4** Windows GUI application to be installed and running.
 
-**Download the Windows executable from [solsniperbot.co](https://solsniperbot.co/download.html).**
+**Download the Windows executable from [aicryptosniper.com](https://aicryptosniper.com/download.html).**
 
 ## What It Does
 
@@ -505,11 +505,11 @@ pip install solana-snipe-bot-mcp
 ## Links
 
 - **GitHub:** [https://github.com/solara-sniper-bot/MCP](https://github.com/solara-sniper-bot/MCP)
-- **Website:** [https://solsniperbot.co/](https://solsniperbot.co/)
-- **Download:** [https://solsniperbot.co/download.html](https://solsniperbot.co/download.html)
-- **MCP Landing Page:** [https://solsniperbot.co/mcp/](https://solsniperbot.co/mcp/)
+- **Website:** [https://aicryptosniper.com/](https://aicryptosniper.com/)
+- **Download:** [https://aicryptosniper.com/download.html](https://aicryptosniper.com/download.html)
+- **MCP Landing Page:** [https://aicryptosniper.com/mcp/](https://aicryptosniper.com/mcp/)
 - **PyPI:** [https://pypi.org/project/solana-snipe-bot-mcp/](https://pypi.org/project/solana-snipe-bot-mcp/)
-- **MCP Registry:** `co.solsniperbot/solana-snipe-bot-mcp`
+- **MCP Registry:** `com.aicryptosniper/ai-crypto-sniper-mcp`
 - **Smithery:** [https://smithery.ai/servers/mcleer-michael/solana-snipe-bot-mcp](https://smithery.ai/servers/mcleer-michael/solana-snipe-bot-mcp)
 - **Subscribe (app):** [https://buy.stripe.com/dRm14ngiB5MBfIK6QM7bW07](https://buy.stripe.com/dRm14ngiB5MBfIK6QM7bW07?prefilled_promo_code=SOLV4FIRST50)
 
